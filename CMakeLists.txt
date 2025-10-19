@@ -17,21 +17,27 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(glfw)
 
 # -------------------
-# Create executable
+# GLAD
 # -------------------
-add_executable(${PROJECT_NAME}
-    src/main.cpp
-    libs/glad/src/glad.c       # <- use your local path
-)
+add_library(glad STATIC libs/glad/src/glad.c)
+target_include_directories(glad PRIVATE libs/glad/include)
 
-# Include directories
-target_include_directories(${PROJECT_NAME} PRIVATE
+# -------------------
+# Common include dirs
+# -------------------
+set(COMMON_INCLUDE
     libs/glad/include
     libs/glfw/include
+    include
 )
 
-# Link libraries
-target_link_libraries(${PROJECT_NAME} PRIVATE
-    glfw
-    opengl32
-)
+# -------------------
+# Executables
+# -------------------
+
+# HelloTriangle
+add_executable(HelloTriangle src/HelloTriangle/main.cpp)
+target_include_directories(HelloTriangle PRIVATE ${COMMON_INCLUDE})
+target_link_libraries(HelloTriangle PRIVATE glfw glad opengl32)
+
+
