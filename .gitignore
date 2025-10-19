@@ -1,0 +1,46 @@
+# Build and CMake artifacts
+/build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# Binaries
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+
+# Object files
+*.o
+*.obj
+
+# Libraries
+*.a
+*.lib
+*.la
+*.lo
+
+# Logs and temp
+*.log
+*.tmp
+*.bak
+
+# IDE / Editor
+.vscode/
+.idea/
+*.code-workspace
+
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencies (if manually included)
+libs/
+vendor/
+external/
+deps/
